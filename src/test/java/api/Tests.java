@@ -1,6 +1,7 @@
 package api;
 
 import model.Activity;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import common.Base;
@@ -43,7 +44,7 @@ public class Tests extends Base {
 				.body("$.size()", is(30))
 				.body("id[11]", is(12))
 				.body("title[11]", is("Activity 12"))
-				.body("dueDate[11]", containsString("2021-01-29"))
+				.body("dueDate[11]", Matchers.notNullValue())
 				.body("completed[11]", is(true))
 		;
 	}
